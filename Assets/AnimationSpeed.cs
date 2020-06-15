@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class AnimationSpeed : MonoBehaviour {
 	[SerializeField]
-	private Animator animator;
+	private string speedVariableName;
 
-	[SerializeField]
+	private Animator animator;
 	private NavMeshAgent navMeshAgent;
 
-	[SerializeField]
-	private string speedVariableName;
+	private void Start() {
+		animator = GetComponent<Animator>();
+		navMeshAgent = GetComponent<NavMeshAgent>();
+	}
 
 	void Update() {
 		animator.SetFloat(speedVariableName, navMeshAgent.velocity.magnitude);
