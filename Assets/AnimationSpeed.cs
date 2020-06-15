@@ -10,7 +10,7 @@ public class AnimationSpeed : MonoBehaviour {
 	private Animator animator;
 	private NavMeshAgent navMeshAgent;
 
-	private void Start() {
+	void Start() {
 		animator = GetComponent<Animator>();
 		navMeshAgent = GetComponent<NavMeshAgent>();
 	}
