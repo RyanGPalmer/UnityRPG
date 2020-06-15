@@ -4,22 +4,19 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Navigator : MonoBehaviour {
+	private NavMeshAgent navMeshAgent;
 	private Vector3 target;
-	private NavMeshAgent navMeshAgent = null;
 
 	void Start() {
+		navMeshAgent = GetComponent<NavMeshAgent>();
 		target = gameObject.transform.position; // Target self on start
 	}
 
 	void Update() {
-		if (Input.GetMouseButton(0))
-			updateTarget();
-
-		getNavMeshAgent().SetDestination(target);
-	}
-
-	private void updateTarget() {
-		target = getMouseHitPoint();
+		if (Input.GetMouseButton(0)) {
+			target = getMouseHitPoint();
+			navMeshAgent.SetDestination(target);
+		}
 	}
 
 	private Vector3 getMouseHitPoint() {
@@ -32,12 +29,5 @@ public class Navigator : MonoBehaviour {
 
 	private Ray getMouseRay() {
 		return Camera.main.ScreenPointToRay(Input.mousePosition);
-	}
-
-	private NavMeshAgent getNavMeshAgent() {
-		if (navMeshAgent == null)
-			navMeshAgent = GetComponent<NavMeshAgent>();
-
-		return navMeshAgent;
 	}
 }
