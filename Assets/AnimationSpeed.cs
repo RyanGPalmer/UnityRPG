@@ -14,11 +14,6 @@ public class AnimationSpeed : MonoBehaviour {
 	private string speedVariableName;
 
 	void Update() {
-		animator.SetFloat(speedVariableName, getNormalizedSpeed());
-	}
-
-	private float getNormalizedSpeed() {
-		float normalizedSpeed = navMeshAgent.velocity.magnitude / navMeshAgent.speed;
-		return Mathf.Clamp(normalizedSpeed, 0, 1);
+		animator.SetFloat(speedVariableName, navMeshAgent.velocity.magnitude);
 	}
 }
