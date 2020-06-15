@@ -3487,6 +3487,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fc1343d72c3f764ca47d80e14d3eba8, type: 3}
+--- !u!1 &6138135874384915243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6373444621176431746, guid: 8fc1343d72c3f764ca47d80e14d3eba8,
+    type: 3}
+  m_PrefabInstance: {fileID: 962657696213045161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6138135874385165789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6373444621176681076, guid: 8fc1343d72c3f764ca47d80e14d3eba8,
@@ -3504,11 +3510,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Interface
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952661397994769024, guid: d38313df0f3c8954f9fc68741d9fbe62,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7952661397994769028, guid: d38313df0f3c8954f9fc68741d9fbe62,
         type: 3}
@@ -3619,6 +3620,6 @@ PrefabInstance:
         type: 3}
       propertyPath: thingsToDisable.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6138135874384915243}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38313df0f3c8954f9fc68741d9fbe62, type: 3}
