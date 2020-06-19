@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Movement {
-	public class MovementController : MonoBehaviour {
+	public class Mover : MonoBehaviour {
 		[SerializeField] private string animatorSpeedVariable;
 
 		private NavMeshAgent navMeshAgent;

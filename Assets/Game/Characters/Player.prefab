@@ -561,7 +561,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6373444621176681076}
   - component: {fileID: 9217689542531010545}
-  - component: {fileID: 2780620350064601120}
+  - component: {fileID: 7887423931340829904}
+  - component: {fileID: 2551988164029290587}
   - component: {fileID: 692434938856050883}
   - component: {fileID: 6373444621166994418}
   m_Layer: 0
@@ -599,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f7fd0c84c34eb468f61d02d2ae2b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2780620350064601120
+--- !u!114 &7887423931340829904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -612,6 +613,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorSpeedVariable: forwardSpeed
+--- !u!114 &2551988164029290587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6373444621176431746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609515ceb5e58974b9edabc46f470edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &692434938856050883
 NavMeshAgent:
   m_ObjectHideFlags: 0

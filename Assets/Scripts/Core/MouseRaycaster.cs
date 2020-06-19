@@ -4,18 +4,22 @@ using UnityEngine;
 
 namespace RPG.Core {
 	public class MouseRaycaster {
-		private Vector3 lastHitPoint;
+		private RaycastHit[] lastHits;
 
 		public MouseRaycaster(Vector3 startPoint) {
-			lastHitPoint = startPoint;
+			lastHits = new RaycastHit[] {
+				new RaycastHit {
+					point = startPoint
+				}
+			};
 		}
 
-		public Vector3 getHitPoint() {
-			RaycastHit hit;
-			if (Physics.Raycast(getMouseRay(), out hit))
-				lastHitPoint = hit.point;
+		public RaycastHit[] getHits() {
+			RaycastHit[] hits = Physics.RaycastAll(getMouseRay());
+			if (hits.Length > 0)
+				lastHits = hits;
 
-			return lastHitPoint;
+			return lastHits;
 		}
 
 		private Ray getMouseRay() {
