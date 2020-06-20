@@ -1,53 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using RPG.Movement;
 using RPG.Core;
 using RPG.Combat;
 
-namespace RPG.Control {
-	public class PlayerController : MonoBehaviour {
-		private Mover mover;
-		private Fighter fighter;
-		private MouseRaycaster raycaster;
+namespace RPG.Control
+{
+    public class PlayerController : MonoBehaviour
+    {
+        [SerializeField] Transform movementOrientationTransform;
 
-		void Start() {
-			mover = GetComponent<Mover>();
-			fighter = GetComponent<Fighter>();
-			raycaster = new MouseRaycaster(mover.transform.position);
-		}
+        private Mover mover;
+        private Vector2 direction;
 
-		void Update() {
-			RaycastHit[] hits = raycaster.getHits();
+        void Start()
+        {
+            mover = GetComponent<Mover>();
+        }
 
-			if (Input.GetMouseButtonDown(0))
-				handleCombat(hits);
+        void Update()
+        {
+            mover.moveTo(GetMoveTarget());
+        }
 
-			if (Input.GetMouseButton(0))
-				handleMovement(hits);
-		}
+        public void OnMove(InputValue value)
+        {
+            direction = value.Get<Vector2>();
+        }
 
-		private void handleCombat(RaycastHit[] hits) {
-			CombatTarget combatTarget;
-			if (getFirstCombatTarget(hits, out combatTarget))
-				fighter.setTarget(combatTarget);
-		}
+        private Vector3 GetMoveTarget()
+        {
+            Vector3 forward = movementOrientationTransform.forward * direction.y;
+            Vector3 right = movementOrientationTransform.right * direction.x;
+            Vector3 moveVector = new Vector3(forward.x + right.x, 0, forward.z + right.z);
 
-		private bool getFirstCombatTarget(RaycastHit[] hits, out CombatTarget combatTarget) {
-			foreach (RaycastHit hit in hits) {
-				CombatTarget target;
-				if (hit.transform.TryGetComponent(out target)) {
-					combatTarget = target;
-					return true;
-				}
-			}
+            //Debug.Log(camForward + " " + direction);
+            //Vector3 moveVector = new Vector3(forward.x * direction.y, 0, forward.z * direction.y);
 
-			combatTarget = null;
-			return false;
-		}
-
-		private void handleMovement(RaycastHit[] hits) {
-			mover.setTarget(hits[0].point);
-		}
-	}
+            return transform.position + moveVector;
+        }
+    }
 }

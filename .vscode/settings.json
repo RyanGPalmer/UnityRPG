@@ -1,0 +1,18 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.meta": true,
+        "**/*.csproj": true,
+        "**/*.sln": true,
+        "**/Temp": true,
+        "**/Packages": true,
+        "**/obj": true,
+        "**/Logs": true,
+        "**/Library": true,
+        "**/ProjectSettings": true,
+    },
+}
