@@ -7,19 +7,28 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour
     {
         [SerializeField] private string attackVariable;
+        [SerializeField] private float attackDelay;
 
         private Animator animator;
+        private float timeSinceLastAttack;
 
         void Start()
         {
             animator = GetComponent<Animator>();
         }
 
+        void Update()
+        {
+            timeSinceLastAttack += Time.deltaTime;
+        }
+
         public void PrimaryAttack()
         {
-            AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-            if (!currentState.IsName("Attack"))
+            if (timeSinceLastAttack >= attackDelay && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
                 animator.SetTrigger(attackVariable);
+                timeSinceLastAttack = 0;
+            }
         }
 
         // Animation Event
