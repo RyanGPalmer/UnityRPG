@@ -13,21 +13,30 @@ namespace RPG.Control
         [SerializeField] Transform movementOrientationTransform;
 
         private Mover mover;
+        private Fighter fighter;
         private Vector2 direction;
 
         void Start()
         {
             mover = GetComponent<Mover>();
+            fighter = GetComponent<Fighter>();
         }
 
         void Update()
         {
-            mover.moveTo(GetMoveTarget());
+            mover.MoveTo(GetMoveTarget());
         }
 
-        public void OnMove(InputValue value)
+        // Input Event
+        void OnMove(InputValue value)
         {
             direction = value.Get<Vector2>();
+        }
+
+        // Input Event
+        void OnPrimaryAttack()
+        {
+            fighter.PrimaryAttack();
         }
 
         private Vector3 GetMoveTarget()
@@ -35,9 +44,6 @@ namespace RPG.Control
             Vector3 forward = movementOrientationTransform.forward * direction.y;
             Vector3 right = movementOrientationTransform.right * direction.x;
             Vector3 moveVector = new Vector3(forward.x + right.x, 0, forward.z + right.z);
-
-            //Debug.Log(camForward + " " + direction);
-            //Vector3 moveVector = new Vector3(forward.x * direction.y, 0, forward.z * direction.y);
 
             return transform.position + moveVector;
         }

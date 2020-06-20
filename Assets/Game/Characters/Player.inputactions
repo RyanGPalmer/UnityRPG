@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Primary Attack",
+                    "type": "Button",
+                    "id": "49509c22-e0a4-4485-87bf-73178f53b928",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -248,6 +256,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa214966-d9aa-420f-8019-3b01b7128339",
+                    "path": "<Keyboard>/#(1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Primary Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

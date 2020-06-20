@@ -23,9 +23,8 @@ namespace RPG.Movement
             animator.SetFloat(animatorSpeedVariable, navMeshAgent.velocity.magnitude);
         }
 
-        public void moveTo(Vector3 target)
+        public void MoveTo(Vector3 target)
         {
-            //navMeshAgent.SetDestination(target);
             Vector3 origin = transform.position + Vector3.up;
             Vector3 destination = target + Vector3.up;
             Vector3 direction = destination - origin;
