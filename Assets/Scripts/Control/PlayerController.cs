@@ -24,7 +24,9 @@ namespace RPG.Control
 
         void Update()
         {
-            mover.MoveTo(GetMoveTarget());
+            Vector3 moveTarget = GetMoveTarget();
+            gameObject.transform.LookAt(moveTarget);
+            mover.MoveTo(moveTarget);
         }
 
         // Input Event

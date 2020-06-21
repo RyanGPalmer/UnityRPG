@@ -1481,8 +1481,8 @@ GameObject:
   - component: {fileID: 1012744258}
   - component: {fileID: 1012744257}
   - component: {fileID: 1012744256}
-  m_Layer: 0
-  m_Name: Capsule
+  m_Layer: 8
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3557,6 +3557,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2551988164029290587, guid: 8fc1343d72c3f764ca47d80e14d3eba8,
+        type: 3}
+      propertyPath: hitCollider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551988164029290587, guid: 8fc1343d72c3f764ca47d80e14d3eba8,
+        type: 3}
+      propertyPath: hitLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 6373444621176431746, guid: 8fc1343d72c3f764ca47d80e14d3eba8,
         type: 3}
       propertyPath: m_Name
