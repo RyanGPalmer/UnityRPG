@@ -10,6 +10,7 @@ namespace RPG.Combat
         [SerializeField] LayerMask hitLayer;
         [SerializeField] private string attackVariable;
         [SerializeField] private float attackDelay;
+        [SerializeField] private float attackDamage;
 
         private Animator animator;
         private float timeSinceLastAttack;
@@ -37,7 +38,7 @@ namespace RPG.Combat
         void Hit()
         {
             foreach (CombatTarget target in GetHits())
-                target.ReceiveHit();
+                target.ReceiveHit(attackDamage);
         }
 
         private List<CombatTarget> GetHits()

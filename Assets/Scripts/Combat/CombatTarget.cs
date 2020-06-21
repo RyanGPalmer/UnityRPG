@@ -4,8 +4,36 @@ using UnityEngine;
 
 public class CombatTarget : MonoBehaviour
 {
-    public void ReceiveHit()
+    [SerializeField] float maxHealth;
+    [SerializeField] string hitVariable;
+    [SerializeField] string dieVariable;
+
+    private Animator animator;
+    private float health;
+    private bool isDead;
+
+    void Start()
     {
-        Debug.Log(gameObject.name + " got hit!!");
+        animator = GetComponent<Animator>();
+        health = maxHealth;
+        isDead = false;
+    }
+
+    public void ReceiveHit(float damage)
+    {
+        if (isDead) return;
+
+        health -= damage;
+        if (health <= 0)
+        {
+            isDead = true;
+            animator.SetTrigger(dieVariable);
+            Debug.Log(gameObject.name + " died!");
+        }
+        else
+        {
+            animator.SetTrigger(hitVariable);
+            Debug.Log(gameObject.name + " has " + health + " health remaining!");
+        }
     }
 }
